@@ -1,0 +1,31 @@
+<aura:component controller="TripReportBrowser" extends="c:Base">
+	<aura:attribute name="tripReports" type="TripReport__c[]" access="private" />
+	<aura:attribute name="selectedRecordId" type="String" default="" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:handler name="rowclick" event="c:DataGridRowClick" action="{!c.onDataGridClick}" />
+
+	<lightning:layout horizontalAlign="space" multipleRows="true">
+		<lightning:layoutItem size="8">
+			<lightning:card title="Trip Reports">
+				<aura:set attribute="actions">
+					<lightning:button label="New" variant="brand" />
+				</aura:set>
+				<ui:scrollerWrapper class="scrollerSize">
+					<c:DataGrid aura:id="datagrid" data="{!v.tripReports}" pkField="Id">
+						<c:DataGridColumn fieldName="Date__c" label="Date" hidden="true" />
+						<c:DataGridColumn fieldName="Name" label="Name" />
+						<c:DataGridColumn fieldName="ReviewType__c" label="Type" />
+						<c:DataGridColumn fieldName="InstructorName" label="Instructor" />
+						<c:DataGridColumn fieldName="Rating__c" label="Rating" />
+					</c:DataGrid>
+				</ui:scrollerWrapper>
+			</lightning:card>
+		</lightning:layoutItem>
+		<lightning:layoutItem size="4" padding="horizontal-medium">
+			<aura:if isTrue="{!v.selectedRecordId != ''}">
+				<!-- TODO: exercise 7-4: add Report Detail Lightning Card here when instructed -->
+			</aura:if>
+		</lightning:layoutItem>
+	</lightning:layout>
+</aura:component>

@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes, force:appHostable" access="global">
+	<aura:attribute name="viewMode" type="String" access="private" default="students" />
+
+	<lightning:layout horizontalAlign="space">
+		<lightning:layoutItem padding="around-small" size="2">
+			<lightning:card title="{!v.viewMode}" />
+			<c:AwInstructorsNavigation onselect="{!c.onNavSelect}" />
+		</lightning:layoutItem>
+		<lightning:layoutItem flexibility="auto" padding="around-small" size="6">
+			<c:StudentBrowser />
+		</lightning:layoutItem>
+		<lightning:layoutItem flexibility="auto" padding="around-small" size="4">
+			<c:StudentDetail />
+		</lightning:layoutItem>
+	</lightning:layout>
+</aura:component>

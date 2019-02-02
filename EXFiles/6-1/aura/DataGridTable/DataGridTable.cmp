@@ -1,0 +1,38 @@
+<aura:component>
+	<aura:attribute name="cols" type="Object[]" access="GLOBAL" description="The grid columns" />
+	<aura:attribute name="rows" type="Object[]" access="GLOBAL" description="The grid row data" />
+	<aura:attribute name="selectedRow" type="Object" access="GLOBAL" />
+
+	<table class="slds-table slds-table_bordered slds-max-medium-table_stacked">
+		<thead>
+			<tr class="slds-text-heading_label">
+				<aura:iteration items="{!v.cols}" var="col" indexVar="idx">
+					<th scope="col" class="{!col.class}"><span class="slds-truncate">{!col.label}</span></th>
+				</aura:iteration>
+			</tr>
+		</thead>
+		<tbody>
+			<aura:iteration items="{!v.rows}" var="row" indexVar="idx">
+				<tr aura:id="datarow" class="slds-hint-parent" data-row="{!idx}" data-pk="{!row.pk}" onclick="{!c.onRowClick}">
+					<aura:iteration items="{!row.data}" var="colData">
+						<td class="{!colData.class}" data-label="{!colData.label}">
+							<span class="slds-truncate">
+								<aura:if isTrue="{!colData.type == 'phone'}">
+									<lightning:formattedPhone value="{!colData.value}" />
+									<aura:set attribute="else">
+										<aura:if isTrue="{!colData.type == 'email'}">
+											<lightning:formattedEmail value="{!colData.value}" />
+											<aura:set attribute="else">
+												{!colData.value}
+											</aura:set>
+										</aura:if>
+									</aura:set>
+								</aura:if>
+							</span>
+						</td>
+					</aura:iteration>
+				</tr>
+			</aura:iteration>
+		</tbody>
+	</table>
+</aura:component>
