@@ -1,3 +1,5 @@
 <aura:component>
-	<h1>Filter form goes here</h1>
+	<lightning:card title="Filter Students" iconName="utility:search">
+		<h1>Filter form goes here</h1>
+	</lightning:card>
 </aura:component>	
