@@ -14,4 +14,5 @@
 	"editor.insertSpaces": false,
 	"editor.tabSize": 4,
 	"editor.useTabStops": true,
+	"eslint.nodePath": "/Users/josecarlos.diaz/.vscode/extensions/salesforce.salesforcedx-vscode-lwc-45.3.0/node_modules",
 }
