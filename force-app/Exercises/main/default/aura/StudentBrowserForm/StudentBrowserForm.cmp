@@ -1,7 +1,7 @@
 <aura:component>
 	<lightning:card title="Filter Students" iconName="utility:search">
 		<div class="slds-p-horizontal_small">
-			<h1 >Filter form goes here</h1>
+			<h1 class="crazycomic">Filter form goes here</h1>
 		</div>
 	</lightning:card>
 </aura:component>	
