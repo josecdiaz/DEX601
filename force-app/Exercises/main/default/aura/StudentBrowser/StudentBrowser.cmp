@@ -4,7 +4,7 @@
 	</div>
 	<lightning:tabset variant="scoped">
 		<lightning:tab label="Gallery">
-		Photo gallery of students goes here
+			<c:StudentTile selected="true" />
 		</lightning:tab>
 	</lightning:tabset>
 </aura:component>	
