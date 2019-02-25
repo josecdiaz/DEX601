@@ -2,8 +2,7 @@
 	"packageDirectories": [
 		{
 			"path": "force-app/Exercises",
-			"default": true,
-			"disabled": ["S1EncryptedStoragePref2"]
+			"default": true
 		},
 		{
 			"path": "force-app/Base",
