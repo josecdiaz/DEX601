@@ -1,6 +1,6 @@
 ({
 	onInit: function (component, event, helper) {
-		helper.queryStudents(component,helper,"","");
+		helper.queryStudents(component, helper, "", "");
 	},
 	queryStudents: function (component, helper, instructorId, courseDeliveryId) {
 		helper.callServer(
@@ -13,6 +13,13 @@
 				courseDeliveryId: courseDeliveryId
 			}
 		);
+	},
+	broadcastStudentSelected: function (component) {
+		var appEvent = $A.get("e.c:AwInstructorsStudentSelected"); appEvent.setParams({
+			contactId: component.get('v.selectedContactId')
+		});
+		appEvent.fire();
 	}
+
 })
 
