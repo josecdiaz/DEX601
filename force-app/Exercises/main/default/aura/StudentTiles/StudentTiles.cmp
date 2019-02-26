@@ -1,0 +1,6 @@
+<aura:component>
+	<aura:attribute name="students" type="Contact[]" access="public" />
+	<aura:iteration items="{!v.students}" var="student">
+		<c:StudentTile student="{!student}" />
+	</aura:iteration>
+</aura:component>
