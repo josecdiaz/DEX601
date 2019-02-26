@@ -1,0 +1,7 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="StudentTileExample1" ref="c:ExampleStudentTile" label="Simple Instantiation"> Displays a contact
+		photo and name, fires an application event
+		when clicked.
+	</aura:example>
+</aura:documentation>
