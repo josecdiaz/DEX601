@@ -1,11 +1,19 @@
 ({
-    onInit : function(component, event, helper) {
+	onInit: function (component, event, helper) {
 		helper.callServer(
 			component,
 			"c.getInstructors",
-			function(response) {
+			function (response) {
 				component.set('v.instructors', response);
 			}
-		); 
+		);
+	},
+	onFilterChange: function (component) {
+		var e = component.getEvent('onStudentFilterChange');
+		e.setParams({
+			instructorId: component.get('v.selectedInstructorId'),
+			courseDeliveryId: component.get('v.selectedDeliveryId')
+		});
+		e.fire();
 	}
 })

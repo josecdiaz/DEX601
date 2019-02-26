@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Updated filters">
+	<aura:attribute name="instructorId" type="Id" /> 
+	<aura:attribute name="courseDeliveryId" type="Id" />
+</aura:event>

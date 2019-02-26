@@ -17,6 +17,9 @@
 				}
 			)
 		};
+	},
+	onDeliveryChange: function (component, event, helper) {
+		helper.onFilterChange(component);
 	}
 
 })

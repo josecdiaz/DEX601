@@ -2,9 +2,10 @@
 	controller="StudentBrowser">
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<aura:attribute name="studentList" access="private" type="Contact[]" />
+	<aura:attribute name="selectedCourseDeliveryId" access="private" type="String" default="" />
 
 	<div class="slds-m-bottom_small">
-		<c:StudentBrowserForm />
+		<c:StudentBrowserForm onStudentFilterChange="{!c.onStudentFilterChange}" />
 	</div>
 
 	<lightning:tabset variant="scoped">
