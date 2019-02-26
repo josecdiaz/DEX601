@@ -2,6 +2,7 @@
 	<aura:attribute name="student" type="Contact" access="public"
 		default="{'sobjectType':'Contact', 'Name':'Jose Carlos', 'PhotoUrl': '/services/images/photo/003B0FakePictId'}" />
 	<aura:attribute name="selected" type="boolean" access="public" default="false" />
+	
 	<aura:registerEvent name="onStudentSelected" type="c:StudentSelected" />
 
 	<lightning:button variant="neutral" class="{! v.selected ? 'tile selected' : 'tile'}" onclick="{!c.onStudentClick}">

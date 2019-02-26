@@ -1,8 +1,12 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global" extends="c:Base"
 	controller="StudentBrowser">
+
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<aura:attribute name="studentList" access="private" type="Contact[]" />
 	<aura:attribute name="selectedCourseDeliveryId" access="private" type="String" default="" />
+	<aura:attribute name="selectedContactId" access="private" type="String" default="" />
+
+	<aura:handler name="onStudentSelected" event="c:StudentSelected" action="{!c.onStudentSelected}" />
 
 	<div class="slds-m-bottom_small">
 		<c:StudentBrowserForm onStudentFilterChange="{!c.onStudentFilterChange}" />
@@ -10,7 +14,7 @@
 
 	<lightning:tabset variant="scoped">
 		<lightning:tab label="Gallery">
-			<c:StudentTiles students="{!v.studentList}" />
+			<c:StudentTiles students="{!v.studentList}" selectedStudentId="{!v.selectedContactId}" />
 		</lightning:tab>
 	</lightning:tabset>
 
