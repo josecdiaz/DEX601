@@ -1,7 +1,7 @@
 <aura:component>
 	<aura:attribute name="student" type="Contact" access="public"
 		default="{'sobjectType':'Contact', 'Name':'Jose Carlos', 'PhotoUrl': '/services/images/photo/003B0FakePictId'}" />
-	<aura:attribute name="selected" type="boolean" access="public" default="false" />`
+	<aura:attribute name="selected" type="boolean" access="public" default="false" />
 
 	<lightning:button variant="neutral" class="{! v.selected ? 'tile selected' : 'tile'}" onclick="{!c.onStudentClick}">
 		<div class="innertile" style="{# 'background-image:url(' + v.student.PhotoUrl + ')'}">
