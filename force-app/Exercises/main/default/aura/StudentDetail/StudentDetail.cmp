@@ -8,6 +8,15 @@
 	<force:recordData aura:id="recordLoader" recordId="{!v.contactId}" targetFields="{!v.contact}"
 		targetError="{!v.recordError}" fields="Name,Email,Phone,Description" />
 
-	<lightning:card title="{!v.contact.Name}">
-	</lightning:card>
+	<aura:if isTrue="{!v.contact != null}">
+		<lightning:card title="{!v.contact.Name}">
+			<aura:set attribute="actions">
+				<lightning:button variant="brand" label="Go To Record" title="Go To Record"/>
+			</aura:set>
+			<p><lightning:formattedEmail value="{!v.contact.Email}" /></p>
+			<p><lightning:formattedPhone value="{!v.contact.Phone}" ></lightning:formattedPhone></p>
+			<p>{!v.contact.Description}</p>
+		</lightning:card>
+	</aura:if>
+	
 </aura:component>
