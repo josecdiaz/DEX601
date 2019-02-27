@@ -1,4 +1,4 @@
-<aura:component implements="flexipage:availableForAllPageTypes" access="global" description="Never press the big red button!!!">
+<aura:component implements="flexipage:availableForAllPageTypes, force:lightningQuickAction" access="global" description="Never press the big red button!!!">
 	<aura:attribute name="sound" type="String" default="Sad Trombone" description="valid values=Sad Trombone|Explosion,see docs for more details" />
 	<aura:attribute name="message" type="String" default="D'Oh" description="Message to display while audio is playing" />
 	<aura:attribute name="soundUrl" type="String" default="" access="private" />
