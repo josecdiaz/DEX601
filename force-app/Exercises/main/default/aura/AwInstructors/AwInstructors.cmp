@@ -1,5 +1,7 @@
 <aura:component implements="flexipage:availableForAllPageTypes, force:appHostable" access="global">
 	<aura:attribute name="viewMode" type="String" access="private" default="students" />
+	<aura:attribute name="certificationId" type="Id" access="private" />
+	<aura:attribute name="certificationLabel" type="String" access="private" />
 
 	<lightning:layout horizontalAlign="space">
 		<lightning:layoutItem padding="around-small" size="2">
@@ -15,9 +17,9 @@
 			</lightning:layoutItem>
 
 			<aura:set attribute="else">
-				<lightning:layoutItem flexibility="auto" padding="around-small" size="10">
-					<lightning:card title="Certification Info Here">
-					</lightning:card>
+				<lightning:layoutItem flexibility="auto" padding="around- small" size="10">
+					<c:CertificationStudentList label="{!v.certificationLabel}"
+						certificationId="{!v.certificationId}" />
 				</lightning:layoutItem>
 			</aura:set>
 		</aura:if>
