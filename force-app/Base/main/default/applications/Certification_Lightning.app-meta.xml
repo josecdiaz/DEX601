@@ -13,6 +13,7 @@
     <label>Certification</label>
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
+    <tabs>Panic_Button_Test</tabs>
     <tabs>AwInstructors</tabs>
     <tabs>AwInstructors_Cmp_Tab</tabs>
     <tabs>standard-Account</tabs>
