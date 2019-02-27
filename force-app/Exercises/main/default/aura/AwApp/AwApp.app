@@ -1,4 +1,4 @@
-<aura:application extends="force:slds">
+<aura:application extends="force:slds" template="c:AwAppTemplate">
 	
 	<aura:attribute name="sound" type="String" default="Sad Trombone" />
 	<aura:attribute name="message" type="String" default="D'Oh" />
