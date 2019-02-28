@@ -32,5 +32,44 @@
 		);
 
 		$A.enqueueAction(action);
+	},
+	isLightningExperience: function () {
+		var toast = $A.get("e.force:showToast");
+		if (toast) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	showNotification: function (component, header, title, message, variant, closeCallback) {
+		if (this.isLightningExperience()) {
+			var compEvent = component.getEvent("onnotification");
+			compEvent.setParams({
+				type: 'notification',
+				config: {
+					header: header,
+					title: title,
+					message: message,
+					variant: variant,
+					closeCallback: closeCallback
+				}
+			});
+			compEvent.fire();
+		}
+	},
+	showToast: function (component, title, message, messageData, variant, mode) {
+		if (this.isLightningExperience()) {
+			var compEvent = component.getEvent("onnotification"); compEvent.setParams({
+				type: 'toast',
+				config: {
+					title: title,
+					message: message,
+					messageData: messageData,
+					variant: variant,
+					mode: mode
+				}
+			});
+			compEvent.fire();
+		}
 	}
 })

@@ -1,3 +1,5 @@
 <aura:component abstract="true">
+	<aura:registerEvent name="onnotification" type="c:Notification" />
+
 	{!v.body}
-</aura:component>	
+</aura:component>
