@@ -1,26 +1,6 @@
 ({
 	onCertificationIdChange: function (component, event, helper) {
-		helper.callServer(
-			component,
-			"c.getCertifiedStudents",
-			function (response) {
-				var contacts = [];
-				for (var i = 0; i < response.length; i++) {
-					var rec = response[i];
-					contacts.push({
-						certificationHeldId: rec.Id,
-						contactId: rec.Certified_Professional__r.Id,
-						name: rec.Certified_Professional__r.Name,
-						date: rec.Date_Achieved__c,
-						email: rec.Certified_Professional__r.Email,
-						phone: rec.Certified_Professional__r.Phone
-					});
-				}
-				component.set('v.contacts', contacts);
-			}, {
-				certificationId: component.get('v.certificationId')
-			}
-		);
+		helper.refreshData(component);
 	},
 	doInit: function (component, event, helper) {
 		component.set('v.columns', [
@@ -29,5 +9,29 @@
 			{ label: 'Email', fieldName: 'email', type: 'email' },
 			{ label: 'Phone', fieldName: 'phone', type: 'phone' }
 		]);
+	},
+	onRowSelection: function (component, event, helper) {
+		helper.enableActionButtons(component,
+			event.getParam('selectedRows').length > 0);
+	},
+	onCertActions: function (component, event, helper) {
+		var action = event.getSource().getLocalId();
+		var selections = component.find('datatable').getSelectedRows();
+		var selectedIds = [];
+		for (var i = 0; i < selections.length; i++) {
+			selectedIds.push(selections[i].certificationHeldId);
+		}
+		switch (action) {
+			case 'btnEmail':
+				helper.notAvailable(component);
+				break;
+			case 'btnSendCert':
+				helper.notAvailable(component);
+				break;
+			case 'btnDelete':
+				helper.onDelete(component, selectedIds);
+				break;
+		}
+
 	}
 })

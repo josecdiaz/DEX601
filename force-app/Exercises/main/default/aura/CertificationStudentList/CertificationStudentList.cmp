@@ -2,14 +2,25 @@
 
 	<aura:attribute name="contacts" type="Object[]" access="private" description="The data to output in the table." />
 	<aura:attribute name="columns" type="Object[]" access="private" description="The datatable column definitions." />
-	<aura:attribute name="certificationId" type="Id" access="public" description="Passed to Apex to retrieve a list of contacts who have the specified certification." />
-	<aura:attribute name="label" type="String" access="public" default="" description="The label of the selected certification." />
+	<aura:attribute name="certificationId" type="Id" access="public"
+		description="Passed to Apex to retrieve a list of contacts who have the specified certification." />
+	<aura:attribute name="label" type="String" access="public" default=""
+		description="The label of the selected certification." />
 
 	<aura:handler name="change" value="{!v.certificationId}" action="{!c.onCertificationIdChange}" />
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
 	<lightning:card title="{!v.label + ' Certifications'}">
-		<lightning:datatable data="{!v.contacts}" columns="{!v.columns}" keyField="certificationHeldId" />
+		<lightning:datatable data="{!v.contacts}" columns="{!v.columns}" keyField="certificationHeldId" aura:Id="datatable" onrowselection="{!c.onRowSelection}"/>
+		<aura:set attribute="actions">
+			<lightning:buttonGroup>
+				<lightning:button label="E-Mail" aura:Id="btnEmail" onclick="{!c.onCertActions}" disabled="true" />
+				<lightning:button label="Send Cert." aura:Id="btnSendCert" onclick="{!c.onCertActions}"
+					disabled="true" />
+				<lightning:button label="Delete" aura:Id="btnDelete" onclick="{!c.onCertActions}" disabled="true"
+					variant="destructive" />
+			</lightning:buttonGroup>
+		</aura:set>
 	</lightning:card>
-		
-</aura:component>	
+
+</aura:component>
