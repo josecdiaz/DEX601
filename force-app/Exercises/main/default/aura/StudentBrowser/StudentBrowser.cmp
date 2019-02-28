@@ -7,6 +7,7 @@
 	<aura:attribute name="selectedContactId" access="private" type="String" default="" />
 
 	<aura:handler name="onStudentSelected" event="c:StudentSelected" action="{!c.onStudentSelected}" />
+	<aura:handler name="rowclick" event="c:DataGridRowClick" action="{!c.onDataGridRowClick}" />
 	<aura:registerEvent name="broadcastStudentSelected" type="c:AwInstructorsStudentSelected" />
 
 	<div class="slds-m-bottom_small">
