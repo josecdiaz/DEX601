@@ -9,5 +9,16 @@
 			domEl: target
 		});
 		compEvent.fire();
+	},
+	setSelection: function (component, event, helper) {
+		var params = event.getParam('arguments');
+		var pk = params.Id;
+		var targets = component.find("datarow");
+		for (var i = 0; i < targets.length; i++) {
+			if (targets[i].getElement().getAttribute('data-pk') == pk) {
+				helper.setSelectedRow(component, targets[i]);
+				break;
+			}
+		}
 	}
 })

@@ -22,7 +22,7 @@
 		</lightning:tab>
 		<lightning:tab label="Grid">
 			<ui:scrollerWrapper class="scrollerSize">
-				<c:DataGrid data="{!v.studentList}" pkField="Id">
+				<c:DataGrid data="{!v.studentList}" pkField="Id" aura:id="datagrid">
 					<c:DataGridColumn fieldName="Name" label="Name" />
 					<c:DataGridColumn fieldName="Title" label="Title" hidden="true" />
 					<c:DataGridColumn fieldName="Phone" label="Phone" type="phone" />
