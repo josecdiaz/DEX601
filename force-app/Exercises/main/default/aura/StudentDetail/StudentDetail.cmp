@@ -2,7 +2,8 @@
 	<aura:attribute name="contactId" access="private" type="String" default="" />
 	<aura:attribute name="contact" access="public" type="Contact" />
 	<aura:attribute name="recordError" access="private" type="String" />
-
+	<aura:attribute name="history" access="private" type="Object[]" /> 
+	
 	<aura:handler event="c:AwInstructorsStudentSelected" action="{!c.onStudentSelected}" />
 
 	<force:recordData aura:id="recordLoader" recordId="{!v.contactId}" targetFields="{!v.contact}"

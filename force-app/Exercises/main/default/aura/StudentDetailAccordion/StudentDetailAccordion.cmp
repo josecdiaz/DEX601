@@ -4,5 +4,30 @@
 		description="Array of objects containing the courses that the student has taken in the past." />
 	<aura:attribute name="certs" type="Object[]" access="private"
 		description="Array of objects representing the certifications that the student has achieved." />
+	<aura:handler name="change" value="{!v.contactId}" action="{!c.onContactIdChange}" />
+	<aura:handler name="init" value="{!this}" action="{!c.onContactIdChange}" />
+	<lightning:accordion>
+		<lightning:accordionSection label="Courses" name="courses">
+			<aura:iteration items="{!v.courses}" var="thisCourse">
+				<lightning:tile label="{! thisCourse.startDate + ' - ' +
+						  thisCourse.courseName}" class="slds-tile_board">
+					<aura:set attribute="media">
+						<lightning:icon iconName="standard:event" />
+					</aura:set>
+					{!thisCourse.status}
+				</lightning:tile>
+			</aura:iteration>
+		</lightning:accordionSection>
+		<lightning:accordionSection label="Certifications" name="certifications">
+			<aura:iteration items="{!v.certs}" var="thisCert">
+				<lightning:tile label="{!thisCert.Date_Achieved__c + ' - ' + thisCert.Certification__r.Name}"
+					class="slds-tile_board">
+					<aura:set attribute="media">
+						<lightning:icon iconName="standard:event" />
+					</aura:set>
+				</lightning:tile>
+			</aura:iteration>
+		</lightning:accordionSection>
+	</lightning:accordion>
 
 </aura:component>
