@@ -8,6 +8,8 @@
 	</aura:method>
 
 	<aura:registerEvent name="rowclick" type="c:DataGridRowClick" />
+	<aura:registerEvent name="rowdblclick" type="c:DataGridRowDblClick" />
+
 
 	<table class="slds-table slds-table_bordered slds-max-medium-table_stacked">
 		<thead>
@@ -20,7 +22,7 @@
 		<tbody>
 			<aura:iteration items="{!v.rows}" var="row" indexVar="idx">
 				<tr aura:id="datarow" class="slds-hint-parent" data-row="{!idx}" data-pk="{!row.pk}"
-					onclick="{!c.onRowClick}">
+					onclick="{!c.onRowClick}" ondblclick="{!c.onRowDblClick}">
 					<aura:iteration items="{!row.data}" var="colData">
 						<td class="{!colData.class}" data-label="{!colData.label}">
 							<span class="slds-truncate">

@@ -17,7 +17,37 @@
 	onDataGridRowClick: function (component, event, helper) {
 		component.set('v.selectedContactId', event.getParam('pk'));
 		helper.broadcastStudentSelected(component);
+	},
+	onContactEdit: function (component, event, helper) {
+		var title = "Edit Contact - ";
+		var contactId = event.getParam('pk');
+		var rec = event.getParam('rec');
+		if (rec) {
+			title += rec.Name;
+		}
+		$A.createComponents(
+			[
+				["c:EditSObject", { Id: contactId }],
+				["c:EditSObjectFooter", {}]
+			],
+			function (components, status) {
+				if (status === "SUCCESS") {
+					var cmpEditor = components[0];
+					var cmpFooter = components[1];
+					cmpFooter.set("v.editor", cmpEditor);
+					component.find('overlayLib').showCustomModal({
+						header: title,
+						body: cmpEditor,
+						footer: cmpFooter,
+						showCloseButton: true,
+						cssClass: "",
+						closeCallback: function () {
+							alert('You closed the modal dialog');
+						}
+					});
+				}
+			}
+		);
 	}
-
 })
 
