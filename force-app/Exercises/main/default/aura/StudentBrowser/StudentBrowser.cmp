@@ -7,7 +7,7 @@
 	<aura:attribute name="selectedContactId" access="private" type="String" default="" />
 
 	<aura:handler name="onStudentSelected" event="c:StudentSelected" action="{!c.onStudentSelected}" />
-	<aura:registerEvent name="broadcastStudentSelected" type="c:AwInstructorsStudentSelected"/>
+	<aura:registerEvent name="broadcastStudentSelected" type="c:AwInstructorsStudentSelected" />
 
 	<div class="slds-m-bottom_small">
 		<c:StudentBrowserForm onStudentFilterChange="{!c.onStudentFilterChange}" />
@@ -15,7 +15,9 @@
 
 	<lightning:tabset variant="scoped">
 		<lightning:tab label="Gallery">
-			<c:StudentTiles students="{!v.studentList}" selectedStudentId="{!v.selectedContactId}" />
+			<ui:scrollerWrapper class="scrollerSize">
+				<c:StudentTiles students="{!v.studentList}" selectedStudentId="{!v.selectedContactId}" />
+			</ui:scrollerWrapper>
 		</lightning:tab>
 	</lightning:tabset>
 
