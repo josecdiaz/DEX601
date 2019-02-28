@@ -1,12 +1,27 @@
 ({
-	onInit: function(component) {
+	onInit: function (component) {
 		var obj = this.parseBody(component);
 		component.set("v.cols", obj.cols);
 		component.set("v.rows", obj.rows);
 	},
-	parseBody: function(component, colItems) {
+	parseBody: function (component, colItems) {
 		// TODO: exercise 6-1, insert code here
+		var thisTag, result;
+		var body = component.get("v.body");
+		colItems = colItems || [];
 
+		for (var i = 0; i < body.length; i++) {
+			thisTag = body[i];
+			if (thisTag.isInstanceOf('c:DataGridColumn')) {
+				colItems.push({
+					label: thisTag.get('v.label'),
+					fieldName: thisTag.get('v.fieldName'),
+					type: thisTag.get('v.type'),
+					class: thisTag.get('v.class') + " " + (thisTag.get('v.hidden')
+						? "hiddenColumn" : "")
+				});
+			}
+		}
 
 		// reformat data
 		var rowData = component.get('v.data');

@@ -19,6 +19,16 @@
 				<c:StudentTiles students="{!v.studentList}" selectedStudentId="{!v.selectedContactId}" />
 			</ui:scrollerWrapper>
 		</lightning:tab>
+		<lightning:tab label="Grid">
+			<ui:scrollerWrapper class="scrollerSize">
+				<c:DataGrid data="{!v.studentList}" pkField="Id">
+					<c:DataGridColumn fieldName="Name" label="Name" />
+					<c:DataGridColumn fieldName="Title" label="Title" hidden="true" />
+					<c:DataGridColumn fieldName="Phone" label="Phone" type="phone" />
+					<c:DataGridColumn fieldName="Email" label="E-Mail" type="email" />
+				</c:DataGrid>
+			</ui:scrollerWrapper>
+		</lightning:tab>
 	</lightning:tabset>
 
 </aura:component>

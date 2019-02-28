@@ -1,0 +1,8 @@
+<aura:component extends="c:Base" controller="StudentDetailAccordion">
+	<aura:attribute name="contactId" type="Id" access="public" description="Salesforce Id of the student" />
+	<aura:attribute name="courses" type="Object[]" access="public"
+		description="Array of objects containing the courses that the student has taken in the past." />
+	<aura:attribute name="certs" type="Object[]" access="private"
+		description="Array of objects representing the certifications that the student has achieved." />
+
+</aura:component>

@@ -11,12 +11,17 @@
 	<aura:if isTrue="{!v.contact != null}">
 		<lightning:card title="{!v.contact.Name}">
 			<aura:set attribute="actions">
-				<lightning:button variant="brand" label="Go To Record" title="Go To Record"/>
+				<lightning:button variant="brand" label="Go To Record" title="Go To Record" />
 			</aura:set>
-			<p><lightning:formattedEmail value="{!v.contact.Email}" /></p>
-			<p><lightning:formattedPhone value="{!v.contact.Phone}" ></lightning:formattedPhone></p>
+			<p>
+				<lightning:formattedEmail value="{!v.contact.Email}" />
+			</p>
+			<p>
+				<lightning:formattedPhone value="{!v.contact.Phone}"></lightning:formattedPhone>
+			</p>
 			<p>{!v.contact.Description}</p>
+			<c:StudentDetailAccordion courses="{!v.history}" contactId="{!v.contactId}" />
 		</lightning:card>
 	</aura:if>
-	
+
 </aura:component>
