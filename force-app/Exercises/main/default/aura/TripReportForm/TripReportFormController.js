@@ -40,5 +40,11 @@
 		} else {
 			component.find('btnSubmit').set('v.disabled', true);
 		}
+	},
+	onCancel: function (component, event, helper) {
+		var compEvent = component.getEvent("ontripreportmodechange"); compEvent.setParams({
+			"mode": "view"
+		});
+		compEvent.fire();
 	}
 })
