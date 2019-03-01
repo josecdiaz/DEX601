@@ -1,12 +1,12 @@
 ({
-	doInit: function(component, event, helper) {
+	doInit: function (component, event, helper) {
 		helper.showToast(
 			component,
 			"Welcome",
 			"Don't forget to check back here for updated class schedules and assignments"
 		);
 	},
-	onNavSelect: function(component, event, helper) {
+	onNavSelect: function (component, event, helper) {
 		var selectionName = event.getParam('name');
 		if (selectionName == 'students') {
 			component.set('v.viewMode', 'students');
@@ -19,7 +19,7 @@
 			component.set('v.certificationLabel', key[1]);
 		}
 	},
-	onNotification: function(component, event, helper) {
+	onNotification: function (component, event, helper) {
 		var notifService = component.find('notifLib');
 		var config = event.getParam('config');
 		if (event.getParam('type') == 'toast') {
@@ -28,5 +28,13 @@
 			// notification
 			notifService.showNotice(config);
 		}
+	},
+	spinnerShow: function (component, event, helper) {
+		var m = component.find('modalspinner');
+		$A.util.removeClass(m, "slds-hide");
+	},
+	spinnerHide: function (component, event, helper) {
+		var m = component.find('modalspinner');
+		$A.util.addClass(m, "slds-hide");
 	}
 })

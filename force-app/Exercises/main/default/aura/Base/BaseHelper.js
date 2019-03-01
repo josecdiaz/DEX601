@@ -1,5 +1,8 @@
 ({
 	callServer: function (component, method, callback, params) {
+		var compEvent = component.getEvent("Loading");
+        compEvent.fire();
+
 		let action = component.get(method);
 		if (params) {
 			action.setParams(params);
@@ -28,6 +31,8 @@
 						throw new Error('Unknown Error');
 					}
 				}
+				var compEvent = component.getEvent("DoneLoading");
+				compEvent.fire();
 			}
 		);
 
