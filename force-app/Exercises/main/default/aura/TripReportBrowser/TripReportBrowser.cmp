@@ -5,11 +5,13 @@
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<aura:handler name="rowclick" event="c:DataGridRowClick" action="{!c.onDataGridClick}" />
 
+	<aura:registerEvent name="ontripreportmodechange" type="c:TripReportModeChange"/>
+
 	<lightning:layout horizontalAlign="space" multipleRows="true">
 		<lightning:layoutItem size="8">
 			<lightning:card title="Trip Reports">
 				<aura:set attribute="actions">
-					<lightning:button label="New" variant="brand" />
+					<lightning:button label="New" variant="brand" onclick="{!c.onBtnNewClick}"/>
 				</aura:set>
 				<ui:scrollerWrapper class="scrollerSize">
 					<c:DataGrid aura:id="datagrid" data="{!v.tripReports}" pkField="Id">
