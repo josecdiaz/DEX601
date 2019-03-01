@@ -10,23 +10,28 @@
 
 
 	<lightning:layout horizontalAlign="space" multipleRows="true">
-		<lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="3" largeDeviceSize="2">
+		<lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="3"
+			largeDeviceSize="2">
 			<c:AwInstructorsNavigation onselect="{!c.onNavSelect}" />
 		</lightning:layoutItem>
 
 		<aura:if isTrue="{!v.viewMode == 'students'}">
-			<lightning:layoutItem flexibility="auto" size="6" smallDeviceSize="12" mediumDeviceSize="5" largeDeviceSize="7">
+			<lightning:layoutItem flexibility="auto" size="6" smallDeviceSize="12" mediumDeviceSize="5"
+				largeDeviceSize="7">
 				<c:StudentBrowser />
 			</lightning:layoutItem>
-			<lightning:layoutItem flexibility="auto" padding="horizontal-medium" size="4" smallDeviceSize="12" mediumDeviceSize="4" largeDeviceSize="3">
+			<lightning:layoutItem flexibility="auto" padding="horizontal-medium" size="4" smallDeviceSize="12"
+				mediumDeviceSize="4" largeDeviceSize="3">
 				<c:StudentDetail />
 			</lightning:layoutItem>
 			<aura:set attribute="else">
-				<lightning:layoutItem padding="around-small" size="10" smallDeviceSize="12" mediumDeviceSize="9" largeDeviceSize="10">
+				<lightning:layoutItem padding="around-small" size="10" smallDeviceSize="12" mediumDeviceSize="9"
+					largeDeviceSize="10">
 					<aura:if isTrue="{!v.viewMode == 'tripreports'}">
 						<c:TripReports />
 						<aura:set attribute="else">
-							<c:CertificationStudentList label="{!v.certificationLabel}" certificationId="{!v.certificationId}" />
+							<c:CertificationStudentList label="{!v.certificationLabel}"
+								certificationId="{!v.certificationId}" />
 						</aura:set>
 					</aura:if>
 				</lightning:layoutItem>
