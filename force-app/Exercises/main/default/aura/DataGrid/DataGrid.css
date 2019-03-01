@@ -1,2 +1,3 @@
-.THIS {
-}
+.THIS.slds-table td {
+	font-family: t(myGridFont);
+ }
