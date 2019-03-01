@@ -42,5 +42,18 @@
 			}
 		);
 		this.onChangeId(component);
+	},
+	validateFields: function(component) {
+		var field = null;
+		var fields = component.get('v.validateFields');
+		var validity = null;
+		var result = true;
+		for (var i = 0; i < fields.length; i++) { 
+			field = component.find(fields[i]);
+			validity = field.get('v.validity');
+			result = validity.valid;
+           	if (!result) break;
+		}
+		return result;
 	}
 })
