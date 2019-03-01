@@ -1,5 +1,5 @@
 <aura:component>
-	<aura:attribute name="mode" type="String" default="add" />
+	<aura:attribute name="mode" type="String" default="browse" />
 
 	<aura:if isTrue="{!v.mode == 'add'}">
 		<lightning:layout horizontalAlign="space" multipleRows="true">
@@ -13,7 +13,7 @@
 						  </lightning:layoutItem>
 		</lightning:layout>
 		<aura:set attribute="else">
-
+				<c:TripReportBrowser/>
 		</aura:set>
 	</aura:if>
 </aura:component>
