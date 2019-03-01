@@ -7,13 +7,13 @@
 	<aura:handler name="rowdblclick" event="c:DataGridRowDblClick" action="{!c.onBtnEditClick}" />
 
 
-	<aura:registerEvent name="ontripreportmodechange" type="c:TripReportModeChange"/>
+	<aura:registerEvent name="ontripreportmodechange" type="c:TripReportModeChange" />
 
 	<lightning:layout horizontalAlign="space" multipleRows="true">
 		<lightning:layoutItem size="8">
 			<lightning:card title="Trip Reports">
 				<aura:set attribute="actions">
-					<lightning:button label="New" variant="brand" onclick="{!c.onBtnNewClick}"/>
+					<lightning:button label="New" variant="brand" onclick="{!c.onBtnNewClick}" />
 				</aura:set>
 				<ui:scrollerWrapper class="scrollerSize">
 					<c:DataGrid aura:id="datagrid" data="{!v.tripReports}" pkField="Id">
@@ -28,7 +28,20 @@
 		</lightning:layoutItem>
 		<lightning:layoutItem size="4" padding="horizontal-medium">
 			<aura:if isTrue="{!v.selectedRecordId != ''}">
-				<!-- TODO: exercise 7-4: add Report Detail Lightning Card here when instructed -->
+				<lightning:card title="Report Detail">
+					<aura:set attribute="actions">
+						<lightning:button label="Edit" variant="brand" onclick="{!c.onBtnEditClick}" />
+					</aura:set>
+					<div style="padding:10px">
+						<lightning:recordViewForm recordId="{!v.selectedRecordId}" objectApiName="TripReport__c">
+							<lightning:outputField fieldName="Name" />
+							<lightning:outputField fieldName="Date__c" />
+							<lightning:outputField fieldName="ReviewType__c" />
+							<lightning:outputField fieldName="Rating__c" />
+							<lightning:outputField fieldName="Review__c" />
+						</lightning:recordViewForm>
+					</div>
+				</lightning:card>
 			</aura:if>
 		</lightning:layoutItem>
 	</lightning:layout>
