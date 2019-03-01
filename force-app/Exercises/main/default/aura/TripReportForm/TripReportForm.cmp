@@ -1,0 +1,22 @@
+<aura:component extends="c:Base">
+	<aura:attribute name="Id" type="String" access="public" default="" description="Id for Trip Report" />
+	<aura:registerEvent name="ontripreportmodechange" type="c:TripReportModeChange" />
+
+
+	<lightning:card title="{!empty(v.Id) ? 'Add Trip Report' : 'Edit Trip Report'}">
+		<lightning:recordEditForm recordId="{!empty(v.Id) ? null : v.Id}" objectApiName="TripReport__c"
+			onsuccess="{!c.doSuccess}" class="slds-p-around_medium">
+			<lightning:messages />
+			<lightning:inputField fieldName="Name" />
+			<lightning:inputField fieldName="Date__c" />
+			<lightning:inputField fieldName="ReviewType__c" />
+			<lightning:inputField fieldName="Instructor__c" />
+			<lightning:inputField fieldName="Rating__c" />
+			<lightning:inputField fieldName="Review__c" />
+			<lightning:buttonGroup>
+				<lightning:button class="slds-m-top_small" type="submit" label="{!empty(v.Id) ? 'Create New' : 'Update'}" />
+				<lightning:button class="slds-m-top_small" type="reset" label="Cancel" onclick="{!c.onCancel}" />
+			</lightning:buttonGroup>
+		</lightning:recordEditForm>
+	</lightning:card>
+</aura:component>
