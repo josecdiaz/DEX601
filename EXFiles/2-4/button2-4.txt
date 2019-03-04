@@ -1,7 +1,0 @@
-<lightning:button variant="neutral" class="[dynamic]">
-	<div class="innertile" style="[dynamic]">
-		<div class="lower-third">
-			<h1 class="truncate">[dynamic]</h1>
-		</div>
-	</div>
-</lightning:button>
